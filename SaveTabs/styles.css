@@ -1,0 +1,39 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 16px;
+    background-color: #18181B;
+    width: 200px;
+    height: 112px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+button {
+    width: 100%; /* Take full width minus padding */
+    height: 32px;
+    margin-bottom: 16px;
+    background-color: #2F2F35;
+    border: none;
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px; /* Ensure 16px padding on left and right */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+button:last-child {
+    margin-bottom: 0;
+}
+
+button:hover {
+    background-color: #3D3D42;
+    color: #A970FF;
+}
