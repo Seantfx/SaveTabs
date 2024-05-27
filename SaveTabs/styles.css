@@ -1,39 +1,66 @@
 body {
     font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
     margin: 0;
-    padding: 16px;
-    background-color: #18181B;
-    width: 200px;
-    height: 112px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
+    padding: 0;
 }
 
-button {
-    width: 100%; /* Take full width minus padding */
-    height: 32px;
-    margin-bottom: 16px;
-    background-color: #2F2F35;
+#popup {
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    font-size: 16px;
+    color: #495057;
+}
+
+.btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
     border: none;
-    color: white;
-    font-size: 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 16px; /* Ensure 16px padding on left and right */
-    box-sizing: border-box; /* Include padding in width calculation */
 }
 
-button:last-child {
-    margin-bottom: 0;
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
 }
 
-button:hover {
-    background-color: #3D3D42;
-    color: #A970FF;
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    opacity: 0.9;
+}
+
+#feedback {
+    text-align: center;
+    margin-top: 20px;
+    color: #dc3545;
+}
+
+#feedback.success {
+    color: #28a745;
+}
+
+#feedback.loading {
+    color: #17a2b8;
 }

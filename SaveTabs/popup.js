@@ -1,33 +1,29 @@
 document.getElementById('save-current-window').addEventListener('click', () => {
-    console.log("Save only this window button clicked");
-
-    chrome.runtime.sendMessage({action: "saveCurrentWindow"}, (response) => {
-        console.log("Response received for saving current window:", response);
-
-        if (response.status === "success") {
-            let button = document.getElementById('save-current-window');
-            button.textContent = "All saved!";
-            setTimeout(() => {
-                window.close();
-            }, 3000);
-        } else if (response.status === "tooFewTabs") {
-            console.log("Too few tabs to save");
-        }
+    let folderName = document.getElementById('folder-name').value || "Main window";
+    document.getElementById('feedback').textContent = "Saving...";
+    
+    chrome.runtime.sendMessage({action: "saveCurrentWindow", folderName}, (response) => {
+        handleResponse(response, 'save-current-window');
     });
 });
 
 document.getElementById('save-all-windows').addEventListener('click', () => {
-    console.log("Save all open windows button clicked");
-
-    chrome.runtime.sendMessage({action: "saveAllWindows"}, (response) => {
-        console.log("Response received for saving all windows:", response);
-
-        if (response.status === "success") {
-            let button = document.getElementById('save-all-windows');
-            button.textContent = "All saved!";
-            setTimeout(() => {
-                window.close();
-            }, 3000);
-        }
+    let folderName = document.getElementById('folder-name').value || "All windows";
+    document.getElementById('feedback').textContent = "Saving...";
+    
+    chrome.runtime.sendMessage({action: "saveAllWindows", folderName}, (response) => {
+        handleResponse(response, 'save-all-windows');
     });
 });
+
+function handleResponse(response, buttonId) {
+    if (response.status === "success") {
+        document.getElementById(buttonId).textContent = "All saved!";
+        document.getElementById('feedback').textContent = "";
+        setTimeout(() => {
+            window.close();
+        }, 3000);
+    } else if (response.status === "tooFewTabs") {
+        document.getElementById('feedback').textContent = "Too few tabs to save";
+    }
+}

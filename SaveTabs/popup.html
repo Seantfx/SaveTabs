@@ -4,11 +4,23 @@
     <title>Save Tabs</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div id="popup">
-        <button id="save-current-window">Save only this window</button>
-        <button id="save-all-windows">Save all open windows</button>
+    <div id="popup" class="container">
+        <h3>Save Tabs to Bookmarks</h3>
+        <div class="form-group">
+            <label for="folder-name">Folder Name</label>
+            <input type="text" id="folder-name" class="form-control" placeholder="Enter folder name">
+        </div>
+        <button id="save-current-window" class="btn btn-primary btn-block">
+            <i class="fas fa-window-maximize"></i> Save only this window
+        </button>
+        <button id="save-all-windows" class="btn btn-secondary btn-block">
+            <i class="fas fa-windows"></i> Save all open windows
+        </button>
+        <div id="feedback" class="mt-3"></div>
     </div>
     <script src="popup.js"></script>
 </body>
